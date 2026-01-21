@@ -1,6 +1,6 @@
 # Dashboard de Membros
 
-Sistema para gerenciamento de membros com filtros, paginação e cadastro via modal.
+Sistema para gerenciamento de membros com filtros e paginação.
 
 ## Tecnologias
 - **Frontend:** React, Axios.
@@ -22,7 +22,7 @@ Sistema para gerenciamento de membros com filtros, paginação e cadastro via mo
 
 | Método | Endpoint | Descrição |
 | :--- | :--- | :--- |
-| GET | `/users` | Lista usuários (aceita filtros e page) |
+| GET | `/users` | Lista usuários (aceita filtros) |
 | POST | `/users` | Cadastra um novo usuário |
 | PUT | `/users/:id` | Atualiza dados de um usuário |
 | DELETE | `/users/:id` | Remove um usuário |
