@@ -1,0 +1,67 @@
+@baseUrl = http://localhost:3333
+
+### 1. Criar Usuário (Sucesso)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "Marcos Mion",
+  "email": "mion@teste.com",
+  "password": "Senha@Especial123",
+  "phone": "11999998888",
+  "birth_date": "1990-05-15",
+  "status": "ativo"
+}
+
+### 2. Criar Usuário (ERRO: Menor de 18 anos)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "Usuário Mirim",
+  "email": "mirim@teste.com",
+  "password": "Senha@Especial123",
+  "phone": "11999998888",
+  "birth_date": "2015-01-01",
+  "status": "ativo"
+}
+
+### 3. Criar Usuário (ERRO: Senha sem caractere especial)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "Igor Sem Especial",
+  "email": "sem@especial.com",
+  "password": "SenhaSemEspecial123",
+  "phone": "11999998888",
+  "birth_date": "1990-05-15",
+  "status": "ativo"
+}
+
+### 4. Listar Usuários (Paginação padrão - Página 1)
+GET {{baseUrl}}/users?page=1
+
+### 5. Listar Usuários (Filtro por nome e mostrar inativos)
+GET {{baseUrl}}/users?name=I&showInactive=true
+
+### 6. Listar Usuários (Filtro por Faixa Etária 18-25)
+GET {{baseUrl}}/users?ageRange=18-25
+
+### 7. Editar Usuário (Mudar para Inativo)
+# Substitua o '1' pelo ID que retornou no teste 1
+PUT {{baseUrl}}/users/6
+Content-Type: application/json
+
+{
+  "name": "Marcos Gabriel",
+  "email": "marcos@teste.com",
+  "password": "Senha@Especial123",
+  "phone": "11999998888",
+  "birth_date": "2002-05-15",
+  "status": "ativo"
+}
+
+### 8. Excluir Usuário
+# Substitua o '1' pelo ID desejado
+DELETE {{baseUrl}}/users/2
